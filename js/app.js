@@ -44,31 +44,40 @@ let openedCards = []; //array for holding the open cards
 
 CardsDeck.addEventListener("click", function(event){
     const ClickedCard = event.target; //click on a card
-    if (ClickedCard.classList.contains("card")){
+    if (ClickedCard.classList.contains("card") && 
+    !ClickedCard.classList.contains("show")){
         cardCheck(ClickedCard);
-        addOpenCard(ClickedCard);
-    }
+        openCard(ClickedCard);
+        addOpenCard(ClickedCard)
+    ;}
     if (openedCards.length === 2){
         matchCheck();
         }
 });
+
 function cardCheck(ClickedCard){ 
-    if (!ClickedCard.classList.contains("match") && !openedCards.includes(ClickedCard)){
-        openCard(ClickedCard);
-    }
+    if (
+        !ClickedCard.classList.contains("match") &&
+        !openedCards.includes(ClickedCard)){
+            openCard(ClickedCard);
+        }
 }
+
 function openCard(ClickedCard){
     ClickedCard.classList.add("show", "open");
 }
 
 function addOpenCard(ClickedCard){
-    if (openedCards.length <2){ 
-    openedCards.push(ClickedCard);}
+    if(openedCards.length <2){
+        openedCards.push(ClickedCard);
+    }
 }
 
+/* * * Matching* * * */
 
 function matchCheck (){
-    if (openedCards[0].firstElementChild.className === openedCards[1].firstElementChild.className){
+    if (openedCards[0].firstElementChild.className === 
+        openedCards[1].firstElementChild.className){
         isMatch();
     } else {
         noMatch();
