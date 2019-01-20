@@ -36,3 +36,57 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ /* * * * * * my code starts here * * * * * * */
+
+const CardsDeck = document.querySelector(".deck");
+let openedCards = []; //array for holding the open cards
+
+CardsDeck.addEventListener("click", function(event){
+    const ClickedCard = event.target; //click on a card
+    if (ClickedCard.classList.contains("card")){
+        cardCheck(ClickedCard);
+        addOpenCard(ClickedCard);
+    }
+    if (openedCards.length === 2){
+        matchCheck();
+        }
+});
+function cardCheck(ClickedCard){ 
+    if (!ClickedCard.classList.contains("match") && !openedCards.includes(ClickedCard)){
+        openCard(ClickedCard);
+    }
+}
+function openCard(ClickedCard){
+    ClickedCard.classList.add("show", "open");
+}
+
+function addOpenCard(ClickedCard){
+    if (openedCards.length <2){ 
+    openedCards.push(ClickedCard);}
+}
+
+
+function matchCheck (){
+    if (openedCards[0].firstElementChild.className === openedCards[1].firstElementChild.className){
+        isMatch();
+    } else {
+        noMatch();
+    }
+}
+
+function isMatch (){
+    openedCards[0].classList.add("match"); /* add match? */
+    openedCards[1].classList.add("match");
+    openedCards = [];
+    //need to add matched cards to a new array to create game win!
+}
+
+function noMatch(){
+    setTimeout(() => {
+        openedCards[0].classList.remove("show", "open");/* remove show and open? */;
+        openedCards[1].classList.remove("show", "open");
+        openedCards = [];
+    }, 500);
+    
+}
