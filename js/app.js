@@ -99,3 +99,11 @@ function noMatch(){
     }, 500);
     
 }
+/* * * * SHUFFLE * * * */
+function CreateNewDeck(){
+    let cards = Array.from(document.querySelectorAll(".card"));
+    const shuffleCards = shuffle(cards);
+    for (card of cards){
+        CardsDeck.appendChild(card);
+    }
+}//add to game init!
