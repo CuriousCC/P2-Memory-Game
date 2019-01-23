@@ -51,8 +51,10 @@ CardsDeck.addEventListener("click", function(event){
         addOpenCard(ClickedCard)
     ;}
     if (openedCards.length === 2){
+        movesCounter();
         matchCheck();
         }
+
 });
 
 function cardCheck(ClickedCard){ 
@@ -107,3 +109,39 @@ function CreateNewDeck(){
         CardsDeck.appendChild(card);
     }
 }//add to game init!
+
+
+/* * * * MOVES COUNT * * */
+
+let totalMoves = 0;
+let movesDisplay = document.querySelector(".moves");
+
+function movesCounter(){
+    totalMoves++;
+    movesDisplay.innerHTML = totalMoves;
+    starRating();
+}
+
+
+/* * * * STAR RATING * * */
+let stars = Array.from(document.querySelectorAll(".fa-star"));
+
+function starRating(){
+    if (totalMoves ==10){
+        stars[2].classList.add("black");
+    }else if (totalMoves == 20){
+        stars[1].classList.add("black");
+    } else if (totalMoves ==30){
+        stars[0].classList.add("black");
+    }
+}   
+
+/* * * TIMER * * */
+
+
+/* * * END OF GAME = WIN * * */
+//modal
+
+//restart button
+
+//init
