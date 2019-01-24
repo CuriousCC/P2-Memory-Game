@@ -2,14 +2,11 @@ html {
     box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: inherit;
 }
 
-html,
-body {
+html, body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -17,7 +14,8 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/geometry2.png');
+    /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -31,6 +29,10 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+}
+
+ul {
+    list-style: none;
 }
 
 /*
@@ -98,7 +100,7 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
-    color:chocolate;  
+    color: chocolate;
 }
 
 .score-panel .stars li {
@@ -106,11 +108,120 @@ h1 {
     display: inline-block;
 }
 
-.fa-star.black{
+.fa-star.black {
     color: black;
 }
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+/*
+* Styles for the modal
+*/
+
+.modal {
+    /* display: none; */
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 2px 16px;
+    border-bottom: 1px solid gray;
+    /* align-items: center;  */
+}
+
+.close {
+    color: black;
+    /*   float: right; */
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: red;
+    cursor: pointer;
+    font-size: 2.5vw;
+}
+
+h1.congrats-msg {
+    /* font-size: 2vw; */
+    text-align: center;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    margin: 0 auto;
+}
+
+h2.modal-title {
+    font-size: 2vw;
+}
+
+ul.modal-stats {
+    list-style-type: none;
+    font-size: 2vw;
+}
+
+li .modal-stars {}
+
+li .modal-time {}
+
+li .modal-moves {}
+
+.modal-footer {
+    padding: 2px 16px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.modal-btn{
+    width: 12vw;
+    height:8vh;
+    color: white;
+    margin: 2vw;
+    border-radius: 15px;
+    font-size: 1.5vw;
+}
+
+.modal-btn:hover{
+    cursor: pointer;
+    width: 13vw;
+    height:9vh; 
+}
+
+.btn-replay {
+    background-color: green;
+}
+.btn-close{
+    background-color: red;
 }
