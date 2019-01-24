@@ -44,17 +44,18 @@ let openedCards = []; //array for holding the open cards
 
 CardsDeck.addEventListener("click", function(event){
     const ClickedCard = event.target; //click on a card
+    // timeCounter();
     if (ClickedCard.classList.contains("card") && 
     !ClickedCard.classList.contains("show")){
         cardCheck(ClickedCard);
         openCard(ClickedCard);
-        addOpenCard(ClickedCard)
-    ;}
+        addOpenCard(ClickedCard);
+    }
+
     if (openedCards.length === 2){
         movesCounter();
         matchCheck();
         }
-
 });
 
 function cardCheck(ClickedCard){ 
@@ -94,7 +95,7 @@ function isMatch (){
 }
 
 function noMatch(){
-    setTimeout(() => {
+    setTimeout(function(){
         openedCards[0].classList.remove("show", "open");/* remove show and open? */;
         openedCards[1].classList.remove("show", "open");
         openedCards = [];
@@ -120,6 +121,9 @@ function movesCounter(){
     totalMoves++;
     movesDisplay.innerHTML = totalMoves;
     starRating();
+    if (totalMoves==1){
+        timeCounter();
+    }
 }
 
 
@@ -137,11 +141,52 @@ function starRating(){
 }   
 
 /* * * TIMER * * */
+let timer = document.querySelector(".timer");
+let seconds = 0;
+let minutes = 0;
+let interval=null;
+
+function timeCounter(){
+    interval=setInterval(function(){
+        seconds++;
+        if (seconds==60){
+            minutes++;
+            seconds = 0;
+        }
+        if (minutes <10){
+            timer.innerHTML = `0${minutes}:${seconds}`;
+            if (seconds <10){
+            timer.innerHTML = `0${minutes}:0${seconds}`;
+            }
+        } else {
+            timer.innerHTML = `${minutes}:${seconds}`;
+        }
+
+    }, 1000);
+}
 
 
+
+function stopTimer(){
+    clearInterval(interval);
+}
+
+function resetTimer(){
+    timer.innerHTML = "00:00";
+    seconds = 0;
+    minutes = 0;
+}
 /* * * END OF GAME = WIN * * */
+//if all cards matched, stopp time, display modal
+
 //modal
+    //display time, stars, moves
+    //ok and cancell buttons for play agian
 
 //restart button
 
 //init
+    //shuffle deck
+    //reset moves, time, stars
+    //start time on first click
+    //add the click event for cards matching, moves count, stars rating
