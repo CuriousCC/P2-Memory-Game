@@ -41,10 +41,10 @@ function shuffle(array) {
 
 const CardsDeck = document.querySelector(".deck");
 let openedCards = []; //array for holding the open cards
+let matchedCards =[];
 
 CardsDeck.addEventListener("click", function(event){
     const ClickedCard = event.target; //click on a card
-    // timeCounter();
     if (ClickedCard.classList.contains("card") && 
     !ClickedCard.classList.contains("show")){
         cardCheck(ClickedCard);
@@ -109,7 +109,17 @@ function CreateNewDeck(){
     for (card of cards){
         CardsDeck.appendChild(card);
     }
-}//add to game init!
+}
+
+/* * * * GAME START * * * */
+
+function startGame{
+    CreateNewDeck(); //shuffle cards
+    stars.classList.remove("black");//reset stars
+    cards.classList.remove("show", "open", "match");//reset cards classes
+    totalMoves = 0;//reset moves
+    resetTimer();//time reset
+}
 
 
 /* * * * MOVES COUNT * * */
@@ -165,8 +175,6 @@ function timeCounter(){
     }, 1000);
 }
 
-
-
 function stopTimer(){
     clearInterval(interval);
 }
@@ -184,9 +192,3 @@ function resetTimer(){
     //ok and cancell buttons for play agian
 
 //restart button
-
-//init
-    //shuffle deck
-    //reset moves, time, stars
-    //start time on first click
-    //add the click event for cards matching, moves count, stars rating
