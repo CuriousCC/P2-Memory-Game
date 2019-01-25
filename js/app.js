@@ -125,12 +125,13 @@ function startGame() {
     movesDisplay.innerHTML = totalMoves;
     resetTimer();//time reset
     resetStars();//reset stars
+    modal.style.display="none";
 }
 
-function restartGame(){
-    modal.style.display="none";
-    startGame();
-}
+// function restartGame(){
+//     modal.style.display="none";
+//     startGame();
+// }
 
 
 /* * * * MOVES COUNT * * */
@@ -246,7 +247,7 @@ closeBtn.addEventListener("click", function (event) {
 })
 //replay btn
 replayBtn.addEventListener("click", function (event) {
-    restartGame();
+    startGame();
 })
 
 //restart button/icon
