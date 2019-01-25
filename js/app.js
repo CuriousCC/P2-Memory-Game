@@ -127,6 +127,11 @@ function startGame() {
     resetStars();//reset stars
 }
 
+function restartGame(){
+    modal.style.display="none";
+    startGame();
+}
+
 
 /* * * * MOVES COUNT * * */
 
@@ -241,8 +246,7 @@ closeBtn.addEventListener("click", function (event) {
 })
 //replay btn
 replayBtn.addEventListener("click", function (event) {
-    startGame();
-    toggleModal();
+    restartGame();
 })
 
 //restart button/icon
