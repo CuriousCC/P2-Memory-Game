@@ -57,7 +57,7 @@ CardsDeck.addEventListener("click", function (event) {
     }
 
     if (matchedCardPairs == allCardsMatched) {
-        displayStats();
+        displayStats(); //win, show modal
     }
 });
 
@@ -91,16 +91,15 @@ function matchCheck() {
 }
 
 function isMatch() {
-    openedCards[0].classList.add("match"); /* add match? */
+    openedCards[0].classList.add("match");
     openedCards[1].classList.add("match");
     openedCards = [];
-    //need to add matched cards to a new array to create game win!
     matchedCardPairs++;
 }
 
 function noMatch() {
     setTimeout(function () {
-        openedCards[0].classList.remove("show", "open");/* remove show and open? */;
+        openedCards[0].classList.remove("show", "open");
         openedCards[1].classList.remove("show", "open");
         openedCards = [];
     }, 500);
@@ -125,14 +124,8 @@ function startGame() {
     movesDisplay.innerHTML = totalMoves;
     resetTimer();//time reset
     resetStars();//reset stars
-    modal.style.display="none";
+    modal.style.display = "none";
 }
-
-// function restartGame(){
-//     modal.style.display="none";
-//     startGame();
-// }
-
 
 /* * * * MOVES COUNT * * */
 
@@ -147,7 +140,6 @@ function movesCounter() {
         timeCounter();
     }
 }
-
 
 /* * * * STAR RATING * * */
 let stars = Array.from(document.querySelectorAll(".fa-star"));
@@ -201,14 +193,17 @@ function resetTimer() {
     minutes = 0;
 }
 /* * * END OF GAME = WIN * * */
-//if all cards matched, stopp time, display modal
+
+//if all cards matched, stop time, display modal
+//display time, stars, moves
+//buttons for play agian or cancel
+
+//win vars
 const allCardsMatched = 8;
 let matchedCardPairs = 0;
 
-//modal
+//modal var
 const modal = document.querySelector(".modal");
-//display time, stars, moves
-//ok and cancell buttons for play agian
 
 function displayStats() {
     //show modal
