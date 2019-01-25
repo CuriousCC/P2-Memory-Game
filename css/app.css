@@ -100,12 +100,15 @@ ul {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
-    color: chocolate;
 }
 
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+}
+
+.fa-star.gold {
+    color: chocolate;
 }
 
 .fa-star.black {
@@ -122,7 +125,6 @@ ul {
 */
 
 .modal {
-    /* display: none; */
     position: fixed;
     z-index: 1;
     padding-top: 100px;
@@ -136,6 +138,10 @@ ul {
     overflow: auto;
     /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.toggle-modal {
+    display: none;
 }
 
 .modal-content {
@@ -203,25 +209,25 @@ li .modal-moves {}
     justify-content: space-around;
 }
 
-
-.modal-btn{
+.modal-btn {
     width: 12vw;
-    height:8vh;
+    height: 8vh;
     color: white;
     margin: 2vw;
     border-radius: 15px;
     font-size: 1.5vw;
 }
 
-.modal-btn:hover{
+.modal-btn:hover {
     cursor: pointer;
     width: 13vw;
-    height:9vh; 
+    height: 9vh;
 }
 
 .btn-replay {
     background-color: green;
 }
-.btn-close{
+
+.btn-close {
     background-color: red;
 }
